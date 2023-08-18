@@ -63,7 +63,8 @@ if add_data:
                     'status':status,
                     'sponsorship':sponsorship,
                     'website':website}
-        df = df.append(new_data, ignore_index = True)
+        df = pd.concat([df, pd.DataFrame([new_data])], ignore_index=True)
+#        df = df.append(new_data, ignore_index = True)
         df.to_csv('application_info.csv', index = False)
         set_to_false()
     else:

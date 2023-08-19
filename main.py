@@ -169,7 +169,7 @@ edited_df = st.data_editor(
             #validate="^st\.[a-z_]+$",
         ),
         "website": st.column_config.TextColumn(
-            disabled = False 
+            disabled = True 
         ),
         "company_name": st.column_config.TextColumn(
             disabled = True 

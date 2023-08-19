@@ -1,1 +1,19 @@
-google.oauth2
+gitdb==4.0.10
+GitPython==3.1.29
+glob2 @ file:///home/linux1/recipes/ci/glob2_1610991677669/work
+google-api-core @ file:///C:/ci/google-api-core-split_1613980333946/work
+google-auth @ file:///tmp/build/80754af9/google-auth_1626320605116/work
+google-cloud-core @ file:///tmp/build/80754af9/google-cloud-core_1625077425256/work
+google-cloud-storage @ file:///tmp/build/80754af9/google-cloud-storage_1601307969662/work
+google-crc32c @ file:///C:/ci/google-crc32c_1613234249694/work
+google-resumable-media @ file:///tmp/build/80754af9/google-resumable-media_1624367812531/work
+googleapis-common-protos @ file:///C:/ci/googleapis-common-protos-feedstock_1617957814607/work
+greenlet @ file:///C:/ci/greenlet_1628888275363/work
+grpcio @ file:///C:/ci/grpcio_1637590978642/work
+gsheetsdb==0.1.13.1
+notebook @ file:///C:/ci/notebook_1645002729033/work
+numba @ file:///C:/ci/numba_1650394399948/work
+numexpr @ file:///C:/ci/numexpr_1640704337920/work
+numpy==1.23.4
+numpydoc @ file:///opt/conda/conda-bld/numpydoc_1643788541039/work
+olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work

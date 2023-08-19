@@ -7,6 +7,8 @@ Created on Thu Aug 17 16:40:17 2023
 
 import pandas as pd
 import streamlit as st
+from google.oauth2 import service_account
+from gsheetsdb import connect
 
 
 delete_data = False
@@ -185,4 +187,33 @@ edited_df.to_csv('application_info.csv', index = False)
 
 # st.dataframe(df)
 # st.write(existing_company)
-st.write("Organizations marked with an asterisk (*) have several data science-related positions on their website; please visit the respective company's careers/jobs website to see what interests you!")
+st.write("""Organizations marked with an asterisk (*) 
+         have several data science-related positions on their 
+         website; please visit the respective company's careers/jobs
+         website to see what interests you!""")
+
+
+
+# Create a connection object.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=[
+        "https://www.googleapis.com/auth/spreadsheets",
+    ],
+)
+conn = connect(credentials=credentials)
+
+# Perform SQL query on the Google Sheet.
+# Uses st.cache_data to only rerun when the query changes or after 10 min.
+@st.cache_resource(ttl=600)
+def run_query(query):
+    rows = conn.execute(query, headers=1)
+    rows = rows.fetchall()
+    return rows
+
+sheet_url = st.secrets["private_gsheets_url"]
+rows = run_query(f'SELECT * FROM "{sheet_url}"')
+
+# Print results.
+for row in rows:
+    st.write(f"{row.company_name} has a :{row.status}:")

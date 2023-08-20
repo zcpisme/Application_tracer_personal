@@ -123,7 +123,7 @@ if add_data:
         df = pd.concat([df, pd.DataFrame([new_data])], ignore_index=True)
 #        df = df.append(new_data, ignore_index = True)
         #df.to_csv('application_info.csv', index = False)
-        update_the_spreadsheet('application_info',df)
+        #update_the_spreadsheet('application_info',df)
         set_to_false()
     else:
         st.sidebar.info('Need Company Name/position')
@@ -155,7 +155,7 @@ if delete_data:
     df.drop(index = [d1], 
             inplace = True)
     df.reset_index(drop=True,inplace = True)
-    update_the_spreadsheet('application_info',df)
+    #update_the_spreadsheet('application_info',df)
     #df.to_csv('application_info.csv', index = False)
     set_to_false()
     
